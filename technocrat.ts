@@ -53,3 +53,29 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   const highest = Math.max(...products.map((p) => p.price));
   return products.filter((p) => p.price === highest)[0] || null;
 }
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (day == Day.Saturday || day == Day.Sunday) return "Weekend";
+  else return "Weekday";
+}
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise<number>((resolve, reject) => {
+    setTimeout(() => {
+      if (n < 0) reject(new Error(" Negative number not allowed"));
+      else resolve(n * n);
+    }, 1000);
+  });
+}
+
+
