@@ -37,3 +37,19 @@ class Car extends Vehicle {
     return `Model: ${this.model}`;
   }
 }
+
+function processValue(value: string | number): number {
+  if (typeof value == "number") return value * 2;
+  else return value.length;
+}
+
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length === 0) return null;
+  const highest = Math.max(...products.map((p) => p.price));
+  return products.filter((p) => p.price === highest)[0] || null;
+}
